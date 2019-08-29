@@ -5,7 +5,7 @@ class Ball{
     this.clr = color(random(255), random(255), random(255))
     this.loc = createVector(x, y);
     this.vel = createVector(dx, dy);
-    this.acc = createVector(0, .3);
+    //this.acc = createVector(0, .3);
 }
 run(){
   this.render();
@@ -41,7 +41,7 @@ render(){
 
 update(){
   this.loc.add(this.vel)
-  this.vel.add(this.acc)
+  //this.vel.add(this.acc)
 }
 
 }

@@ -8,7 +8,7 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
 
-loadBalls(500);
+loadBalls(100);
 }
 //  The draw function is called @ 30 fps
 function draw() {
