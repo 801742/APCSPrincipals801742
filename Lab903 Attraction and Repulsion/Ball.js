@@ -11,7 +11,7 @@ class Ball{
     this.loc = createVector(x, y);
     this.vel = createVector(dx, dy);
     this.id = id;
-    this.acc = createVector(0, .1);
+    this.acc = createVector(0, 0);
     if(this.id<0){
       this.w=50;
     }
@@ -52,19 +52,20 @@ render(){
 update(){
   var distToMainBall
   if(id >= 0){
-  distToMainBall = this.loc.dist(mainBall.loc);
-  if(distToMainBall<250){
-    this.acc = p5.Vector.sub(mainBall.loc, this.loc);
-    this.acc.normalize();
-    this.acc.mult(0.1);
+    distToMainBall = this.loc.dist(mainBall.loc);
+    if(distToMainBall<250){
+      this.acc = p5.Vector.sub(mainBall.loc, this.loc);
+      this.acc.normalize();
+      this.acc.mult(0.1);
+    }
+    if(distToMainBall<150){
+      this.acc = p5.Vector.sub(this.loc, mainBall.loc);
+      this.acc.normalize();
+      this.acc.mult(0.5);
+    }
   }
-  if(distToMainBall<150){
-    this.acc = p5.Vector.sub(this.loc, mainBall.loc);
-    this.acc.normalize();
-    this.acc.mult(0.5);
-  }
-}
-  this.loc.add(this.vel)
+  this.loc.add(this.vel);
+  this.vel.add(this.acc)
 
 }//end of update
 
