@@ -48,9 +48,10 @@ render(){
   }
 }
 update(){
-  var distToMainBall //HW FIX THIS FOR 2nd Ball
+  var distToMainBall
   var distToMainBallrep
   if(this.id >= 0){
+    distToMainBallrep = this.loc.dist(mainBallrep.loc);
     distToMainBall = this.loc.dist(mainBall.loc);
     if(distToMainBall < 800){
       this.acc = p5.Vector.sub(mainBall.loc, this.loc);
@@ -58,7 +59,7 @@ update(){
       this.acc.mult(.07);
     }
     if(distToMainBall < 150){
-      this.acc = p5.Vector.sub(this.loc, mainBall.loc);
+      this.acc = p5.Vector.sub(mainBallrep.loc, this.loc);
       this.acc.normalize();
       this.acc.mult(.5);
     }
@@ -66,7 +67,6 @@ update(){
   this.vel.limit(5);
   this.loc.add(this.vel);
   this.vel.add(this.acc);
-
 }//end of update
 
 }//end of ball class
