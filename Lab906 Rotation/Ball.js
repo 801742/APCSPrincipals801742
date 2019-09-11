@@ -24,7 +24,6 @@ render(){
   ellipse(this.loc.x, this.loc.y, this.w, this.w);
 }
   checkEdges(){
-    if(this.id >= 0) {
     if(this.loc.x < 0 || this.loc.x > width){
       this.vel.x = -this.vel.x;
     }
@@ -32,34 +31,19 @@ render(){
       this.vel.y = -this.vel.y;
     }
   }
-  if(this.id < 0){
-    if(this.loc.x < -25) {
-      this.loc.x = 825
-    }
-    if(this.loc.x > 825){
-      this.loc.x = -25
-    }
-    if(this.loc.y < -25 ){
-      this.loc.y = 825
-    }
-    if(this.loc.y > 825){
-      this.loc.y = -25
-  }
-  }
-}
 update(){
-  var distToMainBall
-  var distToMainBallrep
+  var distToatractor
+  var distTorepeller
   if(this.id >= 0){
-    distToMainBallrep = this.loc.dist(mainBallrep.loc);
-    distToMainBall = this.loc.dist(mainBall.loc);
-    if(distToMainBall < 800){
-      this.acc = p5.Vector.sub(mainBall.loc, this.loc);
+    distToatractor = this.loc.dist(atractor.loc);
+    distTorepeller = this.loc.dist(repeller.loc);
+    if(distToatractor < 800){
+      this.acc = p5.Vector.sub(atractor.loc, this.loc);
       this.acc.normalize();
       this.acc.mult(.07);
     }
-    if(distToMainBallrep < 150){
-      this.acc = p5.Vector.sub(this.loc, mainBallrep.loc);
+    if(distTorepeller < 150){
+      this.acc = p5.Vector.sub(this.loc, repeller.loc);
       this.acc.normalize();
       this.acc.mult(.5);
     }
