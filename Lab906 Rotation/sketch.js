@@ -8,7 +8,7 @@ function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20,);
-  loadObjects(100);
+  loadObjects(1000);
 }
 //  The draw function is called @ 30 fps
 function draw() {
@@ -23,7 +23,7 @@ function loadObjects(n){
     for(var i =0; i < n; i++){
       ships[i] = new Ship(random(width), random(height), random(-2, 2), random(-2, 2), i);
   }
-}
+} // end of loadObjects
 
 function runShips(){
   repeller.run();
@@ -31,5 +31,4 @@ function runShips(){
     for(var i = 0; i < ships.length; i++){
       ships[i].run();
   }
-
-}
+} //end of runShips
