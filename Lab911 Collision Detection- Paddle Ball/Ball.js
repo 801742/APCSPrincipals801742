@@ -25,4 +25,13 @@ update(){
   this.loc.add(this.vel);
   this.vel.add(this.acc);
 } //end of update
-} //end of ball class
+
+/*function isColliding(){
+  if(this.loc.x > paddle.loc.x && this.loc.x < paddle.loc.x + w && this.loc.y > paddle.loc.y && this.loc.y < paddle.loc.y + h){
+    return true;
+  } else{
+    return false;
+  }
+} //end of isColliding
+*/
+}; //end of ball class
