@@ -2,8 +2,9 @@ var mouseLoc;
 class Paddle {
 constructor(x, y, w, h) {
   this.clr = color(255, 0 , 0);
-  this.loc = createVector(x, y)
-  this.loc2 = createVector(w, h);
+  this.loc = createVector(x, y);
+  this.w = 100
+  this.h = 25
 } //end of constructor
 
 run(){
@@ -13,7 +14,7 @@ run(){
 
 render(){
   fill(this.clr)
-  rect(this.loc.x, this.loc.y, this.loc2.x, this.loc2.y);
+  rect(this.loc.x, this.loc.y, this.w, this.h);
 }
 
 update(){

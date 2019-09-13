@@ -10,6 +10,7 @@ run(){
   this.render();
   this.checkEdges();
   this.update();
+  this.isColliding();
 } //end of run
 render(){
   fill(this.clr);
@@ -26,6 +27,12 @@ update(){
   this.vel.add(this.acc);
 } //end of update
 
-
-
+isColliding(){
+  if(this.loc.x > paddle.loc.x &&
+  this.loc.x < paddle.loc.x +paddle.w &&
+  this.loc.y > paddle.loc.y &&
+  this.loc.y < paddle.loc.y + paddle.h){
+    this.vel.y = -this.vel.y;
+}
+}
 }; //end of ball class
