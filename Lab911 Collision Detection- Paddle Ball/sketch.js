@@ -3,6 +3,7 @@
 // Collision
 var balls = []
 var paddle;
+var score;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -13,6 +14,10 @@ function setup() {
 function draw() {
   background(255,255,255, 60);
   runObjects();
+  fill(2, 2, 2)
+  textSize(25);
+  text('Score:', 50, 30)
+  score = new Score(1, 130, 30)
 }
 
 function loadObjects(n){
