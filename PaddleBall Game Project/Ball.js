@@ -34,5 +34,6 @@ isColliding(){
   this.loc.y < paddle.loc.y + paddle.h){
     this.vel.y = -this.vel.y;
 }
+score++
 }
 }; //end of ball class
