@@ -1,3 +1,4 @@
+
 class Ship{
   constructor(x, y, dx, dy, id) {
     this.clr = color(random(255), random(255), random(255));
@@ -33,10 +34,17 @@ checkEdges(){
   }
   if(this.loc.y > height) this.vel.y = -this.vel.y;
 }
-
 update(){
+if(this.id > 1){
+  var distToboss;
+  distToboss = this.loc.dist(boss.loc);
+    this.acc = p5.Vector.sub(boss.loc, this.loc);
+    this.acc.normalize();
+    this.acc.mult(.07);
+}else{
   this.loc.add(this.vel);
   this.vel.add(this.acc);
+}
 }
 isColliding(){
   if(this.loc.x > paddle.loc.x &&
@@ -44,6 +52,7 @@ isColliding(){
   this.loc.y > paddle.loc.y &&
   this.loc.y < paddle.loc.y + paddle.h){
     this.vel.y = -this.vel.y;
-}
+    this.id + 1;
+  }
 }
 }//end of ship class

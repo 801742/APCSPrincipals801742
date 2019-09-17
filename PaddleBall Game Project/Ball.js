@@ -1,6 +1,6 @@
 
 class Ball{
-  constructor(x, y, dx, dy) {
+  constructor(x, y, dx, dy){
     this.clr = color(random(255), random(255), random(255));
     this.loc = createVector(x, y);
     this.vel = createVector(dx, dy);
