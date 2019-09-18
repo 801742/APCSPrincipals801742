@@ -4,8 +4,7 @@
 var balls = [];
 var ships = [];
 var paddle;
-var boss;
-var gameState = 1;
+var gameState = 2;
 var score;
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -23,8 +22,10 @@ function draw() {
     playGame();
   }else if(gameState === 3){
     endGame();
+  }else if(gameState === 4){
+    multiGame();
   }
-}
+} //end of draw
 
 function loadObjects(b, s){
   for(var i =0; i < b; i++){
@@ -34,7 +35,6 @@ function loadObjects(b, s){
     ships[i] = new Ship(random(width), random(300), random(-2, 2), random(-2, 2), 1);
   }
   paddle = new Paddle(250, 700, 200, 25);
-  boss = new Boss(random(800), 60, random(3));
 } //end of loadObjects
 
 function startGame(){
@@ -49,7 +49,9 @@ function startGame(){
   text('Hard',578,575);
   rect(570, 600, 60, 60);
 }
+function multiGame(){
 
+}
 
 function playGame(){
   textSize(25);
@@ -60,7 +62,6 @@ function playGame(){
 
 function runObjects(){
   paddle.run();
-  boss.run();
   for(var i = 0; i < balls.length; i++) balls[i].run();
   for(var i = 0; i < ships.length; i++) ships[i].run();
 } //end of runObjects
