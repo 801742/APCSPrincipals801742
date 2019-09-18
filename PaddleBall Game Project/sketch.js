@@ -4,8 +4,8 @@
 var balls = [];
 var ships = [];
 var paddle;
-var gameState = 2;
-var score;
+var gameState = 1;
+var score = 0
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -48,7 +48,34 @@ function startGame(){
   rect(370, 600, 60, 60);
   text('Hard',578,575);
   rect(570, 600, 60, 60);
-}
+  if(mouseIsPressed &&
+    mouseX > 170 &&
+    mouseX < 230 &&
+    mouseY > 600 &&
+    mouseY < 660){
+      gameState = 2;
+      //gameMode = 1;
+      console.log('easy');
+    }
+    if(mouseIsPressed &&
+      mouseX > 370 &&
+      mouseX < 430 &&
+      mouseY > 600 &&
+      mouseY < 660){
+        gameState = 2
+        //gameMode = 2;
+        console.log('medium');
+      }
+    if(mouseIsPressed &&
+      mouseX > 570 &&
+      mouseX < 630 &&
+      mouseY > 600 &&
+      mouseY < 660){
+        gameState = 2;
+        //gameMode = 3;
+        console.log('hard');
+      }
+}//end of StartGame
 function multiGame(){
 
 }
