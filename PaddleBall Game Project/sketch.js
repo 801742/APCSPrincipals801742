@@ -40,17 +40,6 @@ function loadObjects(b, s){
 } //end of loadObjects
 
 function startGame(){
-  if(gameMode === 1){
-    b = 3
-    s = 0
-  }else if(gameMode === 2){
-    b= 3
-    s = 2
-  }else if(gameMode === 3){
-    b = 5
-    s = 3
-  };
-  loadObjects(3,0);
   textSize(50);
   text('PaddleBall!', 300, 300);
   fill(20, 100, 130)
@@ -86,6 +75,13 @@ function startGame(){
         gameMode = 3;
         console.log('hard');
       }
+      if(gameMode === 1){
+        loadObjects(2,0)
+      }else if(gameMode === 2){
+        loadObjects(2,2)
+      }else if(gameMode === 3){
+        loadObjects(3,3)
+      };
 }//end of StartGame
 function multiGame(){
 

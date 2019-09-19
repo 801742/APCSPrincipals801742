@@ -19,7 +19,12 @@ render(){
 
   checkEdges(){
     if(this.loc.x < 0 || this.loc.x > width)this.vel.x = -this.vel.x;
-    if(this.loc.y < 0 || this.loc.y > height) this.vel.y = -this.vel.y;
+    if(this.loc.y < 0) this.vel.y = -this.vel.y;
+    if(this.loc.y > height) {
+      for(var i = balls.length - 1; i >= 0; i--){
+        if(balls[i].isColliding()) balls.splice(i,1);
+      }
+    }
   } //end of checkEdges
 
 update(){
@@ -30,10 +35,10 @@ update(){
 isColliding(){
   if(this.loc.x > paddle.loc.x &&
   this.loc.x < paddle.loc.x +paddle.w &&
-  this.loc.y > paddle.loc.y &&
+  this.loc.y+ 15 > paddle.loc.y &&
   this.loc.y < paddle.loc.y + paddle.h){
     this.vel.y = -this.vel.y;
-}
-score++
-}
+    score=score+1;
+};
+}; //end of isColliding
 }; //end of ball class

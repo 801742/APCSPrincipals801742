@@ -32,8 +32,12 @@ checkEdges(){
     this.loc.y = 25
     this.vel.y = -this.vel.y;
   }
-  if(this.loc.y > height) this.vel.y = -this.vel.y;
-}
+  if(this.loc.y > height){
+    for(var i = ships.length - 1; i >= 0; i--){
+      if(ships[i].isColliding()) ships.splice(i,1);
+    }
+  }
+} // end of checkEdges
 update(){
   this.loc.add(this.vel);
   this.vel.add(this.acc);
@@ -44,7 +48,7 @@ isColliding(){
   this.loc.y > paddle.loc.y &&
   this.loc.y < paddle.loc.y + paddle.h){
     this.vel.y = -this.vel.y;
-    this.id + 1;
+    score=score+1;
   }
 }
 }//end of ship class
