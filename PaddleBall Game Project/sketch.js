@@ -5,12 +5,14 @@ var balls = [];
 var ships = [];
 var paddle;
 var gameState = 1;
+var gameMode;
 var score = 0
+var b;
+var s;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
-  loadObjects(2, 5);
 }
 
 function draw() {
@@ -38,6 +40,17 @@ function loadObjects(b, s){
 } //end of loadObjects
 
 function startGame(){
+  if(gameMode === 1){
+    b = 3
+    s = 0
+  }else if(gameMode === 2){
+    b= 3
+    s = 2
+  }else if(gameMode === 3){
+    b = 5
+    s = 3
+  };
+  loadObjects(3,0);
   textSize(50);
   text('PaddleBall!', 300, 300);
   fill(20, 100, 130)
@@ -54,25 +67,23 @@ function startGame(){
     mouseY > 600 &&
     mouseY < 660){
       gameState = 2;
-      //gameMode = 1;
+      gameMode = 1;
       console.log('easy');
-    }
-    if(mouseIsPressed &&
+    }else if(mouseIsPressed &&
       mouseX > 370 &&
       mouseX < 430 &&
       mouseY > 600 &&
       mouseY < 660){
         gameState = 2
-        //gameMode = 2;
+        gameMode = 2;
         console.log('medium');
-      }
-    if(mouseIsPressed &&
+      }else if(mouseIsPressed &&
       mouseX > 570 &&
       mouseX < 630 &&
       mouseY > 600 &&
       mouseY < 660){
         gameState = 2;
-        //gameMode = 3;
+        gameMode = 3;
         console.log('hard');
       }
 }//end of StartGame
