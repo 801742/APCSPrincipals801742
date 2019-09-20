@@ -4,6 +4,7 @@
 var balls = [];
 var ships = [];
 var paddle;
+var paddle2;
 var gameState = 1;
 var gameMode;
 var score = 0
@@ -36,7 +37,8 @@ function loadObjects(b, s){
   for(var i =0; i < s; i++){
     ships[i] = new Ship(random(width), random(300), random(-2, 2), random(-2, 2), 1);
   }
-  paddle = new Paddle(250, 700, 200, 25);
+  paddle = new Paddle(250, 700, 200, 25, 1);
+  paddle2 = new Paddle(250, 100, 200, 25, -1);
 } //end of loadObjects
 
 function startGame(){
