@@ -5,6 +5,7 @@ var balls = [];
 var ships = [];
 var paddle;
 var paddle2;
+var multiBall;
 var gameState = 1;
 var gameMode;
 var score = 0
@@ -39,6 +40,7 @@ function loadObjects(b, s){
   }
   paddle = new Paddle(250, 700, 200, 25, 1);
   paddle2 = new Paddle(250, 100, 200, 25, -1);
+  multiBall = new Ball(random(800, random(300), random(0,5), random(0, 5), 1));
 } //end of loadObjects
 
 function startGame(){
@@ -47,35 +49,43 @@ function startGame(){
   fill(20, 100, 130)
   textSize(25)
   text('Easy',178,575);
-  rect(170, 600, 60, 60);
+  rect(100, 600, 60, 60);
   text('Medium',378,575);
-  rect(370, 600, 60, 60);
+  rect(300, 600, 60, 60);
   text('Hard',578,575);
-  rect(570, 600, 60, 60);
+  rect(500, 600, 60, 60);
+  rect(700, 600, 60, 60);
   if(mouseIsPressed &&
-    mouseX > 170 &&
-    mouseX < 230 &&
+    mouseX > 100 &&
+    mouseX < 160 &&
     mouseY > 600 &&
     mouseY < 660){
       gameState = 2;
       gameMode = 1;
       console.log('easy');
     }else if(mouseIsPressed &&
-      mouseX > 370 &&
-      mouseX < 430 &&
+      mouseX > 300 &&
+      mouseX < 360 &&
       mouseY > 600 &&
       mouseY < 660){
         gameState = 2
         gameMode = 2;
         console.log('medium');
       }else if(mouseIsPressed &&
-      mouseX > 570 &&
-      mouseX < 630 &&
+      mouseX > 500 &&
+      mouseX < 570 &&
       mouseY > 600 &&
       mouseY < 660){
         gameState = 2;
         gameMode = 3;
         console.log('hard');
+      }else if(mouseIsPressed &&
+      mouseX > 700 &&
+      mouseX < 760 &&
+      mouseY > 600 &&
+      mouseY < 660){
+        gameState = 4;
+        console.log('multiplayer');
       }
       if(gameMode === 1){
         loadObjects(2,0)
@@ -86,7 +96,9 @@ function startGame(){
       };
 }//end of StartGame
 function multiGame(){
-
+  paddle.run();
+  paddle2.run();
+  multiBall.run();
 }
 
 function playGame(){

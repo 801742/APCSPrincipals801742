@@ -11,7 +11,7 @@ constructor(x, y, w, h, id) {
 run(){
   this.render();
   this.update();
-  this.keyPressed();
+  //this.keyPressed();
 }//end of run
 
 render(){
@@ -24,8 +24,6 @@ update(){
  var mouseLoc = createVector(mouseX, 700);
  this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09);
 }else if(this.id < 0) {
-  if()
-}
 }
 function keyPressed() {
   if (keyCode === LEFT_ARROW) {
@@ -33,5 +31,6 @@ function keyPressed() {
   } else if (keyCode === RIGHT_ARROW) {
     this.loc.x = this.loc.x+1
   }
+}
 }
 }//end of paddle class
