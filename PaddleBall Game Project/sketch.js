@@ -5,10 +5,11 @@ var balls = [];
 var ships = [];
 var paddle;
 var paddle2;
+var paddle3;
 var multiBall;
 var gameState = 1;
 var gameMode;
-var score = 0
+var score = 0;
 var b;
 var s;
 function setup() {
@@ -39,9 +40,12 @@ function loadObjects(b, s){
     ships[i] = new Ship(random(width), random(300), random(-2, 2), random(-2, 2), 1);
   }
   paddle = new Paddle(250, 700, 200, 25, 1);
+} //end of loadObjects
+function loadMultiObjects(){
+  paddle3 = new Paddle(250, 700, 200, 25, 1);
   paddle2 = new Paddle(250, 100, 200, 25, -1);
   multiBall = new Ball(random(800, random(300), random(0,5), random(0, 5), 1));
-} //end of loadObjects
+}
 
 function startGame(){
   textSize(50);
@@ -96,10 +100,8 @@ function startGame(){
       };
 }//end of StartGame
 function multiGame(){
-  paddle.run();
-  paddle2.run();
-  multiBall.run();
-}
+runMultiObjects();
+};
 
 function playGame(){
   textSize(25);
@@ -107,9 +109,14 @@ function playGame(){
   runObjects();
 } //end of playGame
 
-
 function runObjects(){
   paddle.run();
   for(var i = 0; i < balls.length; i++) balls[i].run();
   for(var i = 0; i < ships.length; i++) ships[i].run();
 } //end of runObjects
+
+function runMultiObjects(){
+  paddle3.run();
+  paddle2.run();
+  multiBall.run();
+}
