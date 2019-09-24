@@ -3,10 +3,7 @@
 // Collision
 var balls = [];
 var ships = [];
-var paddle;
-var paddle2;
-var paddle3;
-var multiBall;
+var paddle = [];
 var gameState = 1;
 var gameMode;
 var score = 0;
@@ -28,24 +25,21 @@ function draw() {
   }else if(gameState === 3){
     endGame();
   }else if(gameState === 4){
-    multiGame();
+    playGame();
   }
 } //end of draw
 
-function loadObjects(b, s){
+function loadObjects(b, s, p){
   for(var i =0; i < b; i++){
     balls[i] = new Ball(random(800), random(300), random(0, 5), random(0,5), 1);
   }
   for(var i =0; i < s; i++){
     ships[i] = new Ship(random(width), random(300), random(-2, 2), random(-2, 2), 1);
   }
-  paddle = new Paddle(250, 700, 200, 25, 1);
-} //end of loadObjects
-function loadMultiObjects(){
-  paddle3 = new Paddle(250, 700, 200, 25, 1);
-  paddle2 = new Paddle(250, 100, 200, 25, -1);
-  multiBall = new Ball(random(800, random(300), random(0,5), random(0, 5), 1));
+  for(var i = 0; i < p; i++){
+  paddle[i] = new Paddle(250, random(800), 200, 25, i);
 }
+} //end of loadObjects
 
 function startGame(){
   textSize(50);
@@ -89,19 +83,22 @@ function startGame(){
       mouseY > 600 &&
       mouseY < 660){
         gameState = 4;
+        gameMode = 4
         console.log('multiplayer');
       }
       if(gameMode === 1){
-        loadObjects(2,0)
+        loadObjects(2,0,1)
       }else if(gameMode === 2){
-        loadObjects(2,2)
+        loadObjects(2,2,1)
       }else if(gameMode === 3){
-        loadObjects(3,3)
-      };
+        loadObjects(3,3,1)
+      }else if(gameMode === 4){
+        loadObjects(1,0,1)
+      }
 }//end of StartGame
-function multiGame(){
-runMultiObjects();
-};
+//function multiGame(){
+//runMultiObjects();
+//}
 
 function playGame(){
   textSize(25);
@@ -110,7 +107,7 @@ function playGame(){
 } //end of playGame
 
 function runObjects(){
-  paddle.run();
+  for(var i = 0; i , paddle.length; i++) paddle[i].run();
   for(var i = 0; i < balls.length; i++) balls[i].run();
   for(var i = 0; i < ships.length; i++) ships[i].run();
 } //end of runObjects
