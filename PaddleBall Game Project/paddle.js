@@ -19,15 +19,7 @@ render(){
 }
 
 update(){
-  if(this.id > 0){
  var mouseLoc = createVector(mouseX, 700);
  this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09);
-}else{
-if(keyIsDown(LEFT_ARROW)){
-  this.loc.x - 1;
-}else if(keyIsDown(RIGHT_ARROW)){
-  this.loc.x + 1;
-}
-}
-} //end of update
+};
 }//end of paddle class

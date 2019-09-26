@@ -3,7 +3,7 @@
 // Collision
 var balls = [];
 var ships = [];
-var paddle = [];
+var paddle;
 var gameState = 1;
 var gameMode;
 var score = 0;
@@ -29,22 +29,21 @@ function draw() {
   }
 } //end of draw
 
-function loadObjects(b, s, p){
+function loadObjects(b, s){
   for(var i =0; i < b; i++){
     balls[i] = new Ball(random(800), random(300), random(0, 5), random(0,5), 1);
   }
   for(var i =0; i < s; i++){
     ships[i] = new Ship(random(width), random(300), random(-2, 2), random(-2, 2), 1);
   }
-  for(var i = 0; i < p; i++){
-  paddle[i] = new Paddle(250, random(800), 200, 25, i);
-}
+  paddle = new Paddle(250, 600, 200, 25);
 } //end of loadObjects
 
 function startGame(){
   textSize(50);
   text('PaddleBall!', 300, 300);
-  fill(20, 100, 130)
+  new Button()
+/*  fill(20, 100, 130)
   textSize(25)
   text('Easy',178,575);
   rect(100, 600, 60, 60);
@@ -86,6 +85,7 @@ function startGame(){
         gameMode = 4
         console.log('multiplayer');
       }
+      */
       if(gameMode === 1){
         loadObjects(2,0,1)
       }else if(gameMode === 2){
@@ -95,10 +95,7 @@ function startGame(){
       }else if(gameMode === 4){
         loadObjects(1,0,1)
       }
-}//end of StartGame
-//function multiGame(){
-//runMultiObjects();
-//}
+}
 
 function playGame(){
   textSize(25);
@@ -107,13 +104,7 @@ function playGame(){
 } //end of playGame
 
 function runObjects(){
-  for(var i = 0; i , paddle.length; i++) paddle[i].run();
+  paddle.run();
   for(var i = 0; i < balls.length; i++) balls[i].run();
   for(var i = 0; i < ships.length; i++) ships[i].run();
 } //end of runObjects
-
-function runMultiObjects(){
-  paddle3.run();
-  paddle2.run();
-  multiBall.run();
-}
