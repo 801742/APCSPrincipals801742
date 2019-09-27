@@ -20,16 +20,17 @@ render(){
   checkEdges(){
     if(this.loc.x < 0 || this.loc.x > width)this.vel.x = -this.vel.x;
     if(this.loc.y < 0) this.vel.y = -this.vel.y;
-    if(this.loc.y > height) {
-      for(var i = balls.length - 1; i >= 0; i--){
-        if(balls[i].isColliding()) balls.splice(i,1);
-      }
-    }
+    if(this.loc.y > height){
+       this.loc.y = 0
+       this.vel.y = 0
+       lives = lives - 1;
+     }
   } //end of checkEdges
 
 update(){
   this.loc.add(this.vel);
   this.vel.add(this.acc);
+  this.vel.limit(20)
 } //end of update
 
 isColliding(){
@@ -39,6 +40,6 @@ isColliding(){
   this.loc.y < paddle.loc.y + paddle.h){
     this.vel.y = -this.vel.y;
     score=score+1;
-};
-}; //end of isColliding
-}; //end of ball class
+}
+} //end of isColliding
+} //end of ball class

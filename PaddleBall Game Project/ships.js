@@ -33,9 +33,9 @@ checkEdges(){
     this.vel.y = -this.vel.y;
   }
   if(this.loc.y > height){
-    for(var i = ships.length - 1; i >= 0; i--){
-      if(ships[i].isColliding()) ships.splice(i,1);
-    }
+    this.loc.y = 0
+    this.vel.y = 0
+    lives = lives - 2;
   }
 } // end of checkEdges
 update(){
