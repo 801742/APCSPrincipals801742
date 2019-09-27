@@ -1,4 +1,6 @@
-
+//  Andrew Mills
+// 	9/25/19
+// PaddleBall Project
 class Ball{
   constructor(x, y, dx, dy){
     this.clr = color(random(255), random(255), random(255));

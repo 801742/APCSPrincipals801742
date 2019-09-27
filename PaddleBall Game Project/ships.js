@@ -1,4 +1,6 @@
-
+//  Andrew Mills
+// 	9/25/19
+// PaddleBall Project
 class Ship{
   constructor(x, y, dx, dy, id) {
     this.clr = color(random(255), random(255), random(255));
@@ -35,7 +37,7 @@ checkEdges(){
   if(this.loc.y > height){
     this.loc.y = 0
     this.vel.y = 0
-    lives = lives - 2;
+    lives = lives - 1;
   }
 } // end of checkEdges
 update(){

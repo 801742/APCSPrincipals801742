@@ -1,6 +1,6 @@
 //  Andrew Mills
-// 	9/11/19
-// Collision
+// 	9/25/19
+// PaddleBall Project
 class Button{
   constructor(x, y, w, h, msg){
   this.loc = createVector(x, y)
