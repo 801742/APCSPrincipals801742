@@ -1,6 +1,7 @@
 //  Andrew Mills
 // 	9/25/19
 // PaddleBall Projectclass Paddle{
+class Paddle{
 constructor(x, y, w, h, id){
   this.clr = color(255, 0 , 0);
   this.loc = createVector(x, y);

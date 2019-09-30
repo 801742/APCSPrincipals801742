@@ -16,7 +16,6 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
   loadButtons();
-
 }
 
 function draw() {
