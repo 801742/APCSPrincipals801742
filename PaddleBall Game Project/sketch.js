@@ -8,9 +8,7 @@ var gameState = 1;
 var gameMode;
 var score = 0;
 var lives = 8;
-var b;
-var s;
-var buttonE, buttonM, buttonH;
+var titleColor;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -19,9 +17,13 @@ function setup() {
 }
 
 function draw() {
+  titleColor = color(random(255), random(255), random(255));
   background(255,255,255);
   fill(2, 2, 2);
   if(gameState === 1){
+    textSize(55);
+    fill(titleColor)
+    text('PaddleBall!', 300, 300);
     startGame();
   }else if(gameState === 2){
     playGame();
@@ -31,7 +33,6 @@ function draw() {
     instructions();
   }
   if(lives === 0) gameState = 3;
-
 } //end of draw
 
 function loadObjects(b, s){
@@ -52,8 +53,6 @@ function loadButtons(){
     buttonP = new Button(400, 600, 60, 60, 'play');
 }
 function startGame(){
-  textSize(50);
-  text('PaddleBall!', 300, 300);
   buttonE.run();
   buttonM.run();
   buttonH.run();
@@ -97,5 +96,6 @@ function endGame(){
     text('You Lost', 250, 200);
     textSize(30)
     text('Score:'+ score, 385, 250);
+    //text('Refresh Page to Restart', 300, 600)
     buttonR.run();
 }

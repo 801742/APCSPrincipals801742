@@ -2,15 +2,16 @@
 // 	9/25/19
 // PaddleBall Project
 class Button{
-  constructor(x, y, w, h, msg){
+  constructor(x, y, w, h, msg, clr){
   this.loc = createVector(x, y)
   this.w = w;
   this.h = h;
   this.msg = msg;
+  this.clr = color(random(255), random(255), random(255))
 
 }//end of constructor
   render(){
-    fill(20, 100, 130);
+    fill(this.clr);
     rect(this.loc.x, this.loc.y, this.w, this.h);
     textSize(25)
     fill(2, 2, 2)
@@ -59,6 +60,7 @@ class Button{
           mouseY < this.loc.y + 60 &&
           this.msg === 'restart'){
           gameState = 1;
+          console.log('hey');
         }else if(mouseIsPressed &&
           mouseX > this.loc.x - 30 &&
           mouseX < this.loc.x + 30 &&
