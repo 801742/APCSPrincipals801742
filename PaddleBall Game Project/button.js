@@ -68,6 +68,6 @@ class Button{
           mouseY < this.loc.y + 60 &&
           this.msg === 'play'){
           gameState = 1;
-        }
+        };
 }
 }//end of button class

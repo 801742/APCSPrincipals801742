@@ -3,19 +3,16 @@
 // PaddleBall Project
 var balls = [];
 var ships = [];
-var paddle;
 var gameState = 1;
 var gameMode;
 var score = 0;
 var lives = 8;
-var titleColor;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
   loadButtons();
 }
-
 function draw() {
   titleColor = color(random(255), random(255), random(255));
   background(255,255,255);
@@ -49,8 +46,8 @@ function loadButtons(){
     buttonM = new Button(300, 600, 60, 60, 'medium');
     buttonH = new Button(500, 600, 60, 60, 'hard');
     buttonI = new Button(675, 600, 60, 60, 'instructions');
-    buttonR = new Button(400, 600, 60, 60, 'restart');
     buttonP = new Button(400, 600, 60, 60, 'play');
+    buttonR = new Button(400, 600, 60, 60, 'restart');
 }
 function startGame(){
   buttonE.run();
@@ -92,10 +89,12 @@ function instructions(){
 
 }
 function endGame(){
+    //buttonR.run();
     textSize(100);
     text('You Lost', 250, 200);
     textSize(30)
     text('Score:'+ score, 385, 250);
+    text('Refresh Page to Restart', 300, 600)
     //text('Refresh Page to Restart', 300, 600)
-    buttonR.run();
-}
+    //buttonR.run();
+};
