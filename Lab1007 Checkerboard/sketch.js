@@ -15,5 +15,10 @@ function setup() {
 function draw() {
 fill(50, 0, 0);
 elipse(200, 200, 50, 50);
-
+for(i = 0; i < 8; i++){
+  p = 50
+for(j = 0; j < 8; j++){
+  new Rectangle(p*id, p*)
+}
+}
 }
