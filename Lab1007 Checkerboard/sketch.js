@@ -4,12 +4,15 @@
 //  The setup function function is called once when your program begins
 var clr;
 var h;
+var id;
+var idy;
 var squares = [];
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   loadRect();
+  for(var i=0;i<squares.length;i++) squares[i].render();
 }
 
 //  The draw function is called @ 30 fps
@@ -24,10 +27,11 @@ for(i = 0; i < 8; i++){
   idy = idy + 1
 for(j = 0; j < 8; j++){
   c = c + 1
-  if(c & 2 === 0) clr = 255
-  if(c & 2 === 1) clr = 1
+  //if(c & 2 === 0) clr = 255
+  //if(c & 2 === 1) clr = 1
   id = id+1
-  squares = new Rectangle(p*id, p*idy, clr);
+  squares[i] = new Rectangle(p*id, p*idy, clr);
+  console.log('hit')
 }
 }
 }
