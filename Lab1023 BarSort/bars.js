@@ -1,5 +1,5 @@
 class Bars{
-  constructor(location){
+  constructor(x, y, w, h){
     this.x = x;
     this.y = y;
     this.w = w;

@@ -27,19 +27,5 @@ function draw() {
 }
 
 function loadBars(num){
-    
+
 }
-function selectionSwap(){
-for (var i = 0; i < list.length - 1; i++){
-  var index = i;
-  for (var j = i + 1; j < list.length; j++){
-    if (list[j] < list[index]){
-       index = j;
-    }
-  }
-            var smallerNumber = list[index];
-            list[index] = list[i];
-            list[i] = smallerNumber;
-        }
-      }
-console.log(list)
