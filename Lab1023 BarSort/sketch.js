@@ -1,31 +1,56 @@
-//  Your Name
-// 	Date or version number
-//  This is a comment
-//  The setup function function is called once when your program begins
+//  Andrew Mills
+// Bar Sort Lab
 var bars = [];
-var numBars, barWidth;
+var numBars;
+var barWidth;
 
-function setup() {
-  var cnv = createCanvas(800, 800);
-  cnv.position((windowWidth-width)/2, 30);
-  background(5, 5, 5);
-  fill(200, 30, 150);
+function setup(){
+  var cnv=createCanvas(800,800);
+  cnv.position((windowWidth-width)/2,30);
+  background(255, 0, 0);
 
-  barWidth = 10;
+  barWidth = 25;
   numBars = width/barWidth;
-
   loadBars(numBars);
-  runBars();
-  myBubbleSort();
+  frameRate(5);
+  for(var i = 0; i < bars.length; i++){
+    bars[i].run();
+  }
 }
 
-//  The draw function is called @ 30 fps
-function draw() {
-  background(20, 20, 110);
-  frameRate(1);
-  runBars();
+function draw(){
+  Bubblesort();
 }
 
 function loadBars(num){
+  for(var i = 0; i < num; i++){
+    var barHeight = Math.floor(random(height));
+    var loc = createVector(i*barWidth, barHeight);
+    bars[i] = new Bar(barWidth, barHeight);
+  }
+}
 
+function runBars(){
+  for(var i = 0; i < bars.length; i++){
+    bars[i].set(i);
+  }
+  background(255, 0, 0);
+  for(var i = 0; i < bars.length; i++){
+    bars[i].run();
+  }
+}
+
+function Bubblesort(){
+  for (var j=0; j < bars.length - 1; j++){
+    if(bars[j].h > bars[j+1].h){
+      swap(bars, j, j + 1);
+      runBars();
+    }
+  }
+}
+
+function swap(list,a,b){
+  var temp=list[a];
+  list[a]=list[b];
+  list[b]=temp;
 }

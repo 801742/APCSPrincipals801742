@@ -1,13 +1,15 @@
 class Bars{
-  constructor(x, y, w, h){
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-    this.clr = color(24, 150, 70);
-  };
+  constructor(loc){
+    this.loc = location;
+    this.w = barWidth;
+    this.h = barHeight
+  }
+  run(){
+    this.render();
+  }
   render(){
-    fill(this.clr)
-    rect(this.x, this.y, this.w, this.h);
+    fill(255, 255, 255);
+    this.loc.x = i * 25;
+    rect(this.loc.x, this.loc.y, this.w, this.h);
   }
 }
