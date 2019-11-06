@@ -1,10 +1,10 @@
 
 class Snake{
   constructor(x, y, w){
-    this.x = x;
-    this.y = y;
+    this.loc = createVector(x,y)
     this.w = w;
     this.clr = color(255, 0, 0);
+    this.vel = createVector(0,0)
   }
   render(){
     fill(this.clr)
@@ -12,5 +12,8 @@ class Snake{
   }
   run(){
     this.render();
+  }
+  update(){
+    this.loc.add(this.vel);
   }
 }
