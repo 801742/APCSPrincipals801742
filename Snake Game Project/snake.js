@@ -14,9 +14,23 @@ class Snake{
     this.render();
   }
   update(){
-    if(mousePressed === Right_Arrow){
-
-    }else if
+    if(KeyIsPressed &&
+      keyCode === RIGHT_ARROW){
+        this.vel.x = 3
+        this.vel.y = 0
+      }else if(KeyIsPressed &&
+      keyCode === LEFT_ARROW){
+        this.vel.x = -3
+        this.vel.y = 0
+      }else if(KeyIsPressed &&
+          keyCode === DOWN_ARROW){
+            this.vel.x = 0
+            this.vel.y = -3
+          }else if(KeyIsPressed &&
+          keyCode === UP_ARROW){
+            this.vel.x = 0
+            this.vel.y = 3
+          }
     this.loc.add(this.vel);
   }
 }

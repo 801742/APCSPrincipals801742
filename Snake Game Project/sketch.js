@@ -15,8 +15,6 @@ function setup(){
 
 function loadHead(){
   head = new Snake(random(800), random(800), 25, 25)
-
-  body = new Snake(random(800), random(800), 25, 25)
 }
 function runHead(){
   head.run();
