@@ -14,6 +14,9 @@ class Snake{
     this.render();
   }
   update(){
+    if(mousePressed === Right_Arrow){
+
+    }else if
     this.loc.add(this.vel);
   }
 }
