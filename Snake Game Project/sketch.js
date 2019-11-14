@@ -13,8 +13,8 @@ function setup(){
   frameRate(15);
 }
 function loadObjects(){
-  head = new Snake(random(800), random(800), 25, 0, 0)
-  food = new Food(random(800), random(800), 25)
+  head = new Snake(int(random(32)), int(random(32)), 25, 0, 0)
+  food = new Food(int(random(32)), int(random(32)), 25)
 }
 function runObjects(){
   background(20, 20, 20);
