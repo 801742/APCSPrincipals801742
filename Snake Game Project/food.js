@@ -11,6 +11,7 @@ class Food{
   };
   run(){
     this.render();
+    this.update();
   };
   update(){
     if(this.loc.x === snake.loc.x && this.loc.y === snake.loc.y){

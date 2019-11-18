@@ -1,7 +1,7 @@
 
 class Snake{
   constructor(x, y, w, dx, dy){
-    this.loc = createVector(x,y);
+    head.loc = createVector(x,y);
     this.w = w;
     this.clr = color(255, 0, 0);
     this.vel = createVector(dx, dy);
