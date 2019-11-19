@@ -22,4 +22,7 @@ function runObjects(){
 }
 function draw(){
   runObjects();
+  if(food.isEaten()){
+  food = new Food(int(random(32)), int(random(32)), 25)
+  }
 }

@@ -14,8 +14,13 @@ class Food{
     this.update();
   };
   update(){
-    if(this.loc.x === snake.loc.x && this.loc.y === snake.loc.y){
-      console.log('yay')
+
+  }
+
+  isEaten(){
+    if(this.loc.x === head.loc.x && this.loc.y === head.loc.y){
+      return true;
     }
+    return false;
   }
 }
