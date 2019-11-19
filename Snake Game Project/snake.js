@@ -2,13 +2,13 @@
 class Snake{
   constructor(x, y, w, dx, dy){
     head.loc = createVector(x,y);
-    this.w = w;
-    this.clr = color(255, 0, 0);
-    this.vel = createVector(dx, dy);
+    head.w = w;
+    head.clr = color(255, 0, 0);
+    head.vel = createVector(dx, dy);
   };
   render(){
-    fill(this.clr);
-    rect(this.loc.x*this.w, this.loc.y*this.w, this.w, this.w);
+    fill(head.clr);
+    rect(head.loc.x*head.w, head.loc.y*head.w, head.w, head.w);
   };
   run(){
     this.render();
@@ -17,21 +17,22 @@ class Snake{
   update(){
     if(keyIsPressed &&
       keyCode === RIGHT_ARROW){
-        this.vel.x = 1;
-        this.vel.y = 0;
+        head.vel.x = 1;
+        head.vel.y = 0;
       }else if(keyIsPressed &&
       keyCode === LEFT_ARROW){
-        this.vel.x = -1;
-        this.vel.y = 0;
+        head.vel.x = -1;
+        head.vel.y = 0;
       }else if(keyIsPressed &&
       keyCode === DOWN_ARROW){
-        this.vel.y = 1;
-        this.vel.x = 0;
+        head.vel.y = 1;
+        head.vel.x = 0;
       }else if(keyIsPressed &&
       keyCode === UP_ARROW){
-        this.vel.y = -1;
-        this.vel.x = 0;
+        head.vel.y = -1;
+        head.vel.x = 0;
     }
-      this.loc.add(this.vel);
+      head.loc.add(head.vel);
   };
+  //tangled(){}
 };

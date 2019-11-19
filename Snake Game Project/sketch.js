@@ -2,8 +2,7 @@
 // 	Date or version number
 //  This is a comment
 //  The setup function function is called once when your program begins
-var head;
-var food;
+var head, food;
 function setup(){
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
