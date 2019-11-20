@@ -2,7 +2,7 @@
 // 	Date or version number
 //  This is a comment
 //  The setup function function is called once when your program begins
-var head, food;
+var head, food, segment;
 function setup(){
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -25,4 +25,5 @@ function draw(){
   if(food.isEaten()){
   food = new Food(int(random(32)), int(random(32)), 25)
   }
+  
 }

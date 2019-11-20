@@ -5,14 +5,19 @@ class Snake{
     this.w = w;
     this.clr = color(255, 0, 0);
     this.vel = createVector(dx, dy);
+    this.body = [];
   };
   render(){
     fill(this.clr);
     rect(this.loc.x*this.w, this.loc.y*this.w, this.w, this.w);
+    for(var i = 0; i < this.body.length; i++){
+      rect(this.body[i].x*this.w,this.body[i].y*this.w, this.w, this.w);
+    }
   };
   run(){
     this.render();
     this.update();
+    this.addBody();
   };
   update(){
     if(keyIsPressed &&
@@ -33,5 +38,19 @@ class Snake{
         this.vel.x = 0;
     }
       this.loc.add(this.vel);
+      if(this.body.length > 0){
+        for(var i = this.body.length - 1; i> 0; i--){
+          this.body[i].x=this.body[x-1].x;
+          this.body[i].y=this.body[x-1].y;
+        }
+        this.body[0].x=head.loc.x;
+        this.body[0].y=head.loc.y;
+      }
   };
+  addBody(){
+    if(this.loc.x === food.loc.x && this.loc.y === food.loc.y){
+      this.body.push(createVector(head.loc.x, head.loc.y));
+    }
+    return false;
+  }
 };
