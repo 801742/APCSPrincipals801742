@@ -9,9 +9,9 @@ class Snake{
   };
   render(){
     fill(this.clr);
-    rect(this.loc.x*this.w, this.loc.y*this.w, this.w, this.w);
+    rect(this.loc.x * this.w, this.loc.y * this.w, this.w, this.w);
     for(var i = 0; i < this.body.length; i++){
-      rect(this.body[i].x*this.w,this.body[i].y*this.w, this.w, this.w);
+      rect(this.body[i].x * this.w,this.body[i].y * this.w, this.w, this.w);
     }
   };
   run(){
@@ -37,20 +37,23 @@ class Snake{
         this.vel.y = -1;
         this.vel.x = 0;
     }
-      this.loc.add(this.vel);
       if(this.body.length > 0){
-        for(var i = this.body.length - 1; i> 0; i--){
-          this.body[i].x=this.body[x-1].x;
-          this.body[i].y=this.body[x-1].y;
+        for(var i = this.body.length-1; i > 0; i--){
+          this.body[i].x=this.body[i-1].x;
+          this.body[i].y=this.body[i-1].y;
         }
-        this.body[0].x=head.loc.x;
-        this.body[0].y=head.loc.y;
+          this.body[0].x=head.loc.x;
+          this.body[0].y=head.loc.y;
       }
+      head.loc.add(this.vel);
   };
   addBody(){
-    if(this.loc.x === food.loc.x && this.loc.y === food.loc.y){
+    if(head.loc.x === food.loc.x && head.loc.y === food.loc.y){
       this.body.push(createVector(head.loc.x, head.loc.y));
     }
-    return false;
   }
-};
+
+  checkEdges(){
+    if(head.loc.x === width || head.loc.x === 0) 
+  }
+}

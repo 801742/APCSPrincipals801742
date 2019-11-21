@@ -2,7 +2,7 @@
 // 	Date or version number
 //  This is a comment
 //  The setup function function is called once when your program begins
-var head, food, segment;
+var head, food, segment, gameState;
 function setup(){
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -10,6 +10,7 @@ function setup(){
   fill(200, 30, 150);
   loadObjects();
   frameRate(15);
+  gameState = 1;
 }
 function loadObjects(){
   head = new Snake(int(random(32)), int(random(32)), 25, 0, 0)
@@ -21,9 +22,11 @@ function runObjects(){
   food.run();
 }
 function draw(){
+  if(gameState === 1) startgame();
+  if(gameState === 2) playgame();
+  if(gameState === 3) endgame();
   runObjects();
   if(food.isEaten()){
   food = new Food(int(random(32)), int(random(32)), 25)
   }
-  
 }
