@@ -54,6 +54,6 @@ class Snake{
   }
 
   checkEdges(){
-    if(head.loc.x === width || head.loc.x === 0) 
+    if(head.loc.x === width || head.loc.x === 0) {}
   }
 }

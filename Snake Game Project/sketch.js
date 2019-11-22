@@ -22,11 +22,16 @@ function runObjects(){
   food.run();
 }
 function draw(){
-  if(gameState === 1) startgame();
-  if(gameState === 2) playgame();
-  if(gameState === 3) endgame();
+//  if(gameState === 1) startgame();
+//  if(gameState === 2) playgame();
+//  if(gameState === 3) endgame();
   runObjects();
   if(food.isEaten()){
   food = new Food(int(random(32)), int(random(32)), 25)
   }
+}
+
+function startgame(){
+  textSize(50)
+  text('Snake Game', 400, 400)
 }
