@@ -18,6 +18,7 @@ class Snake{
     this.render();
     this.update();
     this.addBody();
+    this.checkEdges();
   };
   update(){
     if(keyIsPressed &&
@@ -54,6 +55,17 @@ class Snake{
   }
 
   checkEdges(){
-    if(head.loc.x === width || head.loc.x === 0) {}
+    if(this.loc.x > width/this.w){
+      gameState = 3;
+    }
+    if(this.loc.y> width/this.w){
+      gameState = 3;
+    }
+    if(this.loc.y < 0){
+      gameState = 3;
+    }
+    if(this.loc.x < 0){
+      gameState = 3;
+    }
   }
 }

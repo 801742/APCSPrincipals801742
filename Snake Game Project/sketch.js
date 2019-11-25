@@ -38,9 +38,9 @@ function startgame(){
   text('PLAY', 370, 470)
   if(mouseIsPressed &&
     mouseX > 375 &&
-    mouseX < 400 &&
-    mouseY > 525 &&
-    mouseY < 500){
+    mouseX < 425 &&
+    mouseY > 500 &&
+    mouseY < 550){
       gameState = 2;
       console.log('change')
     }
