@@ -22,10 +22,9 @@ function runObjects(){
   food.run();
 }
 function draw(){
-//  if(gameState === 1) startgame();
-//  if(gameState === 2) playgame();
-//  if(gameState === 3) endgame();
-  runObjects();
+  if(gameState === 1) startgame();
+  if(gameState === 2) playgame();
+  if(gameState === 3) endgame();
   if(food.isEaten()){
   food = new Food(int(random(32)), int(random(32)), 25)
   }
@@ -33,5 +32,22 @@ function draw(){
 
 function startgame(){
   textSize(50)
-  text('Snake Game', 400, 400)
+  text('Snake Game', 250, 200)
+  rect(375, 500, 50, 50)
+  textSize(25)
+  text('PLAY', 370, 470)
+  if(mouseIsPressed &&
+    mouseX > 375 &&
+    mouseX < 400 &&
+    mouseY > 525 &&
+    mouseY < 500){
+      gameState = 2;
+      console.log('change')
+    }
 }
+
+function playgame(){
+  runObjects();
+}
+
+function endgame(){}
