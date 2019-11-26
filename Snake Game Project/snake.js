@@ -23,7 +23,7 @@ class Snake{
     this.update();
     this.addBody();
     this.checkEdges();
-//    this.tangled();
+    this.tangled();
   };
   update(){
     //head movement for right arrow
@@ -66,7 +66,7 @@ class Snake{
     //collision detetector to see when head eats food
     if(head.loc.x === food.loc.x && head.loc.y === food.loc.y){
       //adds segment once food eaten
-      this.body.push(createVector(head.loc.x, head.loc.y));
+      this.body.push(createVector(-1, -1));
     }
   }
 //checkEdges function detects when head hits wall
@@ -90,9 +90,11 @@ class Snake{
     }
   }
   //tangled function detects if snake hits body
-//  tangled(){
-//     if(head.loc.x === this.body[i].x && head.loc.y === this.body[i].y){
-//      gameState = 3;
-//    }
-//  }
+  tangled(){
+    for(var i = 0; i < this.body.length; i++){
+      if(head.loc.x === this.body[i].x && head.loc.y === this.body[i].y){
+        gameState = 3;
+      }
+    }
+  }
 }
