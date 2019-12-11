@@ -1,7 +1,7 @@
 
 class Ball{
   constructor(x, y){
-    this.w=15;
+    this.w = 15;
     this.r = random(255)
     this.clr = color(this.r, 0, 0)
     this.x = x;
