@@ -2,7 +2,7 @@
 // 	9/25/19
 // PaddleBall Project
 class Button{
-  constructor(x, y, w, h, msg, clr){
+  constructor(x, y, w, h, msg){
   this.loc = createVector(x, y)
   this.w = w;
   this.h = h;
@@ -68,6 +68,15 @@ class Button{
           mouseY < this.loc.y + 60 &&
           this.msg === 'play'){
           gameState = 1;
-        };
+        }else if(mouseIsPressed &&
+          mouseX > this.loc.x - 30 &&
+          mouseX < this.loc.x + 30 &&
+          mouseY > this.loc.y - 30 &&
+          mouseY < this.loc.y + 60 &&
+          this.msg === 'BOSS'){
+            gameState = 2;
+            gameMode = 5;
+
 }
 }//end of button class
+}

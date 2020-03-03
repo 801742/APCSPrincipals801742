@@ -7,6 +7,7 @@ var gameState = 1;
 var gameMode;
 var score = 0;
 var lives = 8;
+var boss;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -32,14 +33,25 @@ function draw() {
   if(lives === 0) gameState = 3;
 } //end of draw
 
-function loadObjects(b, s){
+function loadObjects(b, s, c){
+  bheight = random(300)
+  bwidth = random(800)
+  for(var i = 0; i < c; i++){
+  boss = new Boss(random(75, 725), 50, random(-10, 10))
   for(var i =0; i < b; i++){
     balls[i] = new Ball(random(800), random(300), random(0, 5), random(0,5), 1);
   }
   for(var i =0; i < s; i++){
-    ships[i] = new Ship(random(width), random(300), random(-2, 2), random(-2, 2), 1);
+    bwidth = random(800);
+    bheight = random(300);
+    if(gameMode ===5){
+      bwidth = boss.loc.x;
+      bheight = 50;
+    }
+    ships[i] = new Ship(random(bwidth), bheight, random(-2, 2), random(-2, 2), 1);
   }
   paddle = new Paddle(250, 600, 200, 25);
+}
 } //end of loadObjects
 function loadButtons(){
     buttonE = new Button(100, 600, 60, 60, 'easy');
@@ -48,21 +60,25 @@ function loadButtons(){
     buttonI = new Button(675, 600, 60, 60, 'instructions');
     buttonP = new Button(400, 600, 60, 60, 'play');
     buttonR = new Button(400, 600, 60, 60, 'restart');
+    buttonB = new Button(400, 700, 60, 60, 'BOSS')
 }
 function startGame(){
   buttonE.run();
   buttonM.run();
   buttonH.run();
   buttonI.run();
+  buttonB.run();
   if(gameMode === 1){
-      loadObjects(2,0)
+      loadObjects(2,0,0)
   }else if(gameMode === 2){
-      loadObjects(2,2)
+      loadObjects(2,2,0)
   }else if(gameMode === 3){
-      loadObjects(3,3)
+      loadObjects(3,3,0)
   }else if(gameMode === 4){
-      loadObjects(1,0)
-    }
+      loadObjects(1,0,0)
+  }else if(gameMode === 5)
+      loadObjects(3,2,1)
+
 } // end of startGame
 function playGame(){
   textSize(25);
@@ -73,6 +89,7 @@ function playGame(){
 
 function runObjects(){
   paddle.run();
+  boss.run();
   for(var i = 0; i < balls.length; i++) balls[i].run();
   for(var i = 0; i < ships.length; i++) ships[i].run();
 } //end of runObjects
