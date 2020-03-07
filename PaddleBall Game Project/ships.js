@@ -3,7 +3,11 @@
 // PaddleBall Project
 class Ship{
   constructor(x, y, dx, dy, id) {
-    this.clr = color(random(255), random(255), random(255));
+    if(gameMode === 5){
+      this.clr = color(2,2,2);
+    }else{
+      this.clr = color(random(255), random(255), random(255));
+    }
     this.loc = createVector(x, y);
     this.vel = createVector(dx, dy);
     this.id = id;
@@ -35,7 +39,8 @@ checkEdges(){
     this.vel.y = -this.vel.y;
   }
   if(this.loc.y > height){
-    this.loc.y = 0
+    this.loc.y = 50;
+    this.loc.x = boss.loc.x;
     this.vel.y = 0
     lives = lives - 1;
   }

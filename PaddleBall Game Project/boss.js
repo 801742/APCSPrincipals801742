@@ -29,6 +29,7 @@ update(){
   this.loc.add(this.vel);
   this.vel.add(this.acc);
   this.vel.limit(20)
+  
 } //end of update
 
 

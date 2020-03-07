@@ -5,7 +5,12 @@ class Paddle{
 constructor(x, y, w, h, id){
   this.clr = color(255, 0 , 0);
   this.loc = createVector(x, y);
-  this.w = 160
+  if(gameMode === 5){
+    this.w = 300
+  }else{
+      this.w = 160
+  }
+
   this.h = 25
   this.id = id
 } //end of constructor

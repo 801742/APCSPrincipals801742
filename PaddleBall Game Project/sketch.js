@@ -30,25 +30,24 @@ function draw() {
   }else if(gameState === 4){
     instructions();
   }
-  if(lives === 0) gameState = 3;
+  if(lives === 0 || lives < -1) gameState = 3;
 } //end of draw
 
 function loadObjects(b, s, c){
   bheight = random(300)
   bwidth = random(800)
   for(var i = 0; i < c; i++){
-  boss = new Boss(random(75, 725), 50, random(-10, 10))
+  boss = new Boss(random(75, 725), 50, random(-3, 3))
   for(var i =0; i < b; i++){
     balls[i] = new Ball(random(800), random(300), random(0, 5), random(0,5), 1);
   }
   for(var i =0; i < s; i++){
-    bwidth = random(800);
-    bheight = random(300);
     if(gameMode ===5){
+      lives = 100
       bwidth = boss.loc.x;
       bheight = 50;
     }
-    ships[i] = new Ship(random(bwidth), bheight, random(-2, 2), random(-2, 2), 1);
+    ships[i] = new Ship(bwidth, bheight, random(-2, 2), random(-2, 2), 1);
   }
   paddle = new Paddle(250, 600, 200, 25);
 }
@@ -77,7 +76,7 @@ function startGame(){
   }else if(gameMode === 4){
       loadObjects(1,0,0)
   }else if(gameMode === 5)
-      loadObjects(3,2,1)
+      loadObjects(0,60,1)
 
 } // end of startGame
 function playGame(){
