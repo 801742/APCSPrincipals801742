@@ -40,7 +40,9 @@ checkEdges(){
   }
   if(this.loc.y > height){
     this.loc.y = 50;
+    if(gameMode === 5){
     this.loc.x = boss.loc.x;
+  }
     this.vel.y = 0
     lives = lives - 1;
   }

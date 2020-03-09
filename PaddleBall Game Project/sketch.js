@@ -38,6 +38,7 @@ function loadObjects(b, s, c){
   bwidth = random(800)
   for(var i = 0; i < c; i++){
   boss = new Boss(random(75, 725), 50, random(-3, 3))
+}
   for(var i =0; i < b; i++){
     balls[i] = new Ball(random(800), random(300), random(0, 5), random(0,5), 1);
   }
@@ -50,7 +51,6 @@ function loadObjects(b, s, c){
     ships[i] = new Ship(bwidth, bheight, random(-2, 2), random(-2, 2), 1);
   }
   paddle = new Paddle(250, 600, 200, 25);
-}
 } //end of loadObjects
 function loadButtons(){
     buttonE = new Button(100, 600, 60, 60, 'easy');
@@ -88,7 +88,7 @@ function playGame(){
 
 function runObjects(){
   paddle.run();
-  boss.run();
+  if(gameMode === 5) boss.run();
   for(var i = 0; i < balls.length; i++) balls[i].run();
   for(var i = 0; i < ships.length; i++) ships[i].run();
 } //end of runObjects
